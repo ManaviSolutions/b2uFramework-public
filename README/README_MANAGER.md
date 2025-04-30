@@ -221,7 +221,7 @@ Aliase for `parse()`, `route()`, and `response()` calls. `parse()` performs URL 
 ***@note -*** _This is the preferred method for calling the framework as it will internally catch exceptions and process them as errors. If the application decides to use the individual `parse()`, `route()`, and `response()` calls then they should also enclose the execution inside a `try/catch` block and `trigger_error()` on any exceptions._
 ##
 ```PHP 
-Manager::instance()->cURL($endpoint, $method, $data, $header = [], $follow = false, $headers = false, $cookies = false)
+Manager::instance()->cURL($endpoint, $method, $data, $header = [], $follow = false, $headers = false, $cookies = false, $options = [])
 ```
 @param **$endpoint** - `string` - The target `Plugin/[Action/[Method]]` to be called
 
@@ -236,6 +236,8 @@ Manager::instance()->cURL($endpoint, $method, $data, $header = [], $follow = fal
 @param **$headers** - `bool` - Default `false`, If set to true then it will also capture the headers from the response
 
 @param **$cookies** - `bool` - Default `false`, Indicates if all cookie data should be sent to the target $endpoint.
+
+@param **$options** - `Array` - Optional Array of Key=>Value parameters used to be set in curl_setopt.
 
 @return - \[`Mixed`, `int`] - Returns the cURL call results, and HTTP response code from making the request, and headers (if **$headers** is `true`) - throws` \Exception` on any errors.
 
