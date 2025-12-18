@@ -50,13 +50,15 @@ $page->PanelA->PanelB->setVisible(false);
 # Methods
 ```PHP
 \B2U\Core\HTMLTemplate
-    __construct($dir, $file, $data = [])
+    __construct($dir, $file, $data = [], $raw = false)
 ```
 @param **$dir** - `string` - Path to the HTML template file to load.
 
-@param **$file** - `string` - File name to load.
+@param **$file** - `string` - File name to load, or file content if `$raw` is set to true.
 
 @param **$data** - `Array` - (optional) Used to initialize the variables and panels at construction.
+
+@param **$raw** - `Bool` - (optional) When set to true, if the `$file` does not point to an actual file, and is instead the actual content, then it will be used directly without a file read operation.  It is recomended that `$dir` is still set to a string value.
 
 @return - `\B2U\Core\HTMLTemplate` - On a successful load of the template file, an instance to a `\B2U\Core\HTMLTemplate` object is returned.
 
